@@ -1,30 +1,30 @@
-package com.motion.nu13;
+package com.motion.nu13ï¼›
 
 import java.util.Scanner;
 /**
-  Ñ§ÉúĞÅÏ¢¹ÜÀíÏµÍ³
-  Ã¿¸öÑ§ÉúĞÅÏ¢±£´æµ½¶ÔÏóÖĞ
-  Ñ§Éú¶ÔÏó±£´æµ½Êı×éÖĞ
+  æ•™å¸ˆä¿¡æ¯ç®¡ç†ç³»ç»Ÿ
+  æ¯ä¸ªæ•™å¸ˆä¿¡æ¯ä¿å­˜åˆ°å¯¹è±¡ä¸­
+  æ•™å¸ˆå¯¹è±¡ä¿å­˜åˆ°æ•°ç»„ä¸­
 */
 public class Tms {
-	private Teacher[] stus;//ÓÃÓÚ´æ´¢Ñ§ÉúµÄĞÅÏ¢
-	private int index;	//ÓÃÓÚ¼ÇÂ¼Êı×éÖĞ×Ü¹²ÓĞ¼¸¸öÑ§Éú
+	private Teacher[] stus;//ç”¨äºå­˜å‚¨æ•™å¸ˆçš„ä¿¡æ¯
+	private int index;	//ç”¨äºè®°å½•æ•°ç»„ä¸­æ€»å…±æœ‰å‡ ä¸ªæ•™å¸ˆ
 
-	//¹¹Ôìº¯ÊıÓÃÓÚ³õÊ¼»¯¶ÔÏóÖĞ·Ç¾²Ì¬ÊôĞÔ
+	//æ„é€ å‡½æ•°ç”¨äºåˆå§‹åŒ–å¯¹è±¡ä¸­éé™æ€å±æ€§
 	public Tms(){
 		stus = new Teacher[3];
 		index = 0;
 	}
 
 	/**
-	  ±£´æ
-	  @param  Ñ§Éú¶ÔÏó
+	  ä¿å­˜
+	  @param  æ•™å¸ˆå¯¹è±¡
 	*/
 	public void save(Teacher tea){
-		//Êı×éµÄ³¤¶È²»×ãÒÔ±£´æÑ§ÉúÁË£¬Êı×éµÄÀ©Õ¹
+		//æ•°ç»„çš„é•¿åº¦ä¸è¶³ä»¥ä¿å­˜å­¦ç”Ÿäº†ï¼Œæ•°ç»„çš„æ‰©å±•
 		if(index >= stus.length){
 			Teacher[] demo = new Teacher[stus.length + 3];
-			//Êı×é¿½±´£¬stus -> demo
+			//æ•°ç»„æ‹·è´ï¼Œstus -> demo
 			System.arraycopy(stus,0,demo,0,index);
 			stus = demo;
 		}
@@ -32,7 +32,7 @@ public class Tms {
 	}
 
 	/**
-	  ²éÑ¯ËùÓĞµÄÑ§Éú
+	  æŸ¥è¯¢æ‰€æœ‰çš„æ•™å¸ˆ
 	  stus= new Student[3];
 	  {{1001,terry,12},{1002,terry,12},null}
 	  {{1001,terry,12},{1002,terry,12}}
@@ -45,24 +45,24 @@ public class Tms {
 	}
 
 	/**
-		Í¨¹ıÑ§ÉúµÄid²éÕÒÑ§ÉúµÄĞÅÏ¢
+		é€šè¿‡å­¦ç”Ÿçš„idæŸ¥æ‰¾æ•™å¸ˆçš„ä¿¡æ¯
 		 {{1001,terry,12},{1002,terry,12},null}
 		 1002
 	*/
 	public Teacher queryById(long id){
-		//»ñÈ¡¸ÃidËùÔÚÊı×éÖĞµÄË÷Òı
+		//è·å–è¯¥idæ‰€åœ¨æ•°ç»„ä¸­çš„ç´¢å¼•
 		int num = getIndexById(id);
 		return num == -1?null:stus[num];
 	}
 
 	/**
-		Í¨¹ıid»ñÈ¡Ñ§ºÅÎª¸ÃidµÄÑ§ÉúÔÚÊı×éÖĞµÄÎ»ÖÃ
+		é€šè¿‡idè·å–å­¦å·ä¸ºè¯¥idçš„æ•™å¸ˆåœ¨æ•°ç»„ä¸­çš„ä½ç½®
 		 {{1001,terry,12},{1002,terry,12},null}
 		id = 1002
 		 1
 	*/
 	private int getIndexById(long id){
-		int num = -1;//¸ÃÑ§ÉúÕÒ²»µ½
+		int num = -1;//è¯¥æ•™å¸ˆæ‰¾ä¸åˆ°
 		for(int i=0;i<index;i++){
 			if(stus[i].getId() == id){
 				num = i;
@@ -76,7 +76,7 @@ public class Tms {
 		101 terry   12
 		102 jacky   12
 		102 jacky  12
-		ĞŞ¸ÄÑ§ÉúĞÅÏ¢
+		ä¿®æ”¹æ•™å¸ˆä¿¡æ¯
 	*/
 	public void update(Teacher newTea){
 		for(int i=0;i<index;i++){
@@ -87,7 +87,7 @@ public class Tms {
 		}
 	}
 	/**
-		É¾³ıÑ§ÉúĞÅÏ¢
+		åˆ é™¤æ•™å¸ˆä¿¡æ¯
 	    id  name   age
 	stus = {
 		{101 terry   12},
@@ -96,7 +96,7 @@ public class Tms {
 		null,
 	}
 		102
-		ĞŞ¸ÄÑ§ÉúĞÅÏ¢
+		ä¿®æ”¹æ•™å¸ˆä¿¡æ¯
 	*/
 	public void deleteById(long id){
 		int num = getIndexById(id);
@@ -107,39 +107,39 @@ public class Tms {
 	}
 	
 	public void menu(){
-		System.out.println("********½ÌÊ¦¹ÜÀíÏµÍ³********");
-		System.out.println("*1. ²éÑ¯ËùÓĞ½ÌÊ¦ĞÅÏ¢");
-		System.out.println("*2. Â¼Èë½ÌÊ¦ĞÅÏ¢");
-		System.out.println("*3. É¾³ı½ÌÊ¦ĞÅÏ¢");
-		System.out.println("*4. ²éÑ¯µ¥¸ö½ÌÊ¦ĞÅÏ¢");
-		System.out.println("*5. ĞŞ¸Ä½ÌÊ¦ĞÅÏ¢");
-		System.out.println("*exit. ÍË³ö");
-		System.out.println("*help. °ïÖú");
+		System.out.println("********æ•™å¸ˆç®¡ç†ç³»ç»Ÿ********");
+		System.out.println("*1. æŸ¥è¯¢æ‰€æœ‰æ•™å¸ˆä¿¡æ¯");
+		System.out.println("*2. å½•å…¥æ•™å¸ˆä¿¡æ¯");
+		System.out.println("*3. åˆ é™¤æ•™å¸ˆä¿¡æ¯");
+		System.out.println("*4. æŸ¥è¯¢å•ä¸ªæ•™å¸ˆä¿¡æ¯");
+		System.out.println("*5. ä¿®æ”¹æ•™å¸ˆä¿¡æ¯");
+		System.out.println("*exit. é€€å‡º");
+		System.out.println("*help. å¸®åŠ©");
 		System.out.println("****************************");
 	}
 	/**
-		Ö÷·½·¨
+		ä¸»æ–¹æ³•
 	*/
 	public static void main(String[] args){
 		Tms tms = new Tms();
 		tms.menu();
 		Scanner sc = new Scanner(System.in);
 		while(true){
-			System.out.print("ÇëÊäÈë¹¦ÄÜ±àºÅ£º");
+			System.out.print("è¯·è¾“å…¥åŠŸèƒ½ç¼–å·ï¼š");
 			String option = sc.nextLine();
-			//System.out.println("½ÓÊÕÁË£º"+option);
+			//System.out.println("æ¥æ”¶äº†ï¼š"+option);
 			switch(option){
 				case "1":
-					System.out.println("ÒÔÏÂÊÇ½ÌÊ¦µÄĞÅÏ¢£º");
+					System.out.println("ä»¥ä¸‹æ˜¯æ•™å¸ˆçš„ä¿¡æ¯ï¼š");
 					Teacher[] arr = tms.queryAll();
 					for(int i=0;i<arr.length;i++){
 						System.out.println(arr[i]);
 					}
-					System.out.println("×Ü¼Æ "+tms.index+" ¸ö");
+					System.out.println("æ€»è®¡ "+tms.index+" ä¸ª");
 					break;
 				case "2":
 					while(true){
-						System.out.println("ÇëÊäÈë½ÌÊ¦ĞÅÏ¢¡¾id#name#age¡¿»òÕßÊäÈë¡¾break¡¿·µ»ØÉÏÒ»¼¶Ä¿Â¼");
+						System.out.println("è¯·è¾“å…¥æ•™å¸ˆä¿¡æ¯ã€id#name#ageã€‘æˆ–è€…è¾“å…¥ã€breakã€‘è¿”å›ä¸Šä¸€çº§ç›®å½•");
 						String teaStr = sc.nextLine();
 						if(teaStr.equals("break")){
 							break;
@@ -151,31 +151,31 @@ public class Tms {
 						int age = Integer.parseInt(teaArr[2]);
 						Teacher tea = new Teacher(id,name,age);
 						tms.save(tea);
-						System.out.println("±£´æ³É¹¦£¡");
+						System.out.println("ä¿å­˜æˆåŠŸï¼");
 					}
 					
 					break;
 				case "3":
 					while(true){
-						System.out.println("ÇëÊäÈëÒªÉ¾³ı½ÌÊ¦µÄÑ§ºÅ»òÕßÊäÈë¡¾break¡¿·µ»ØÉÏÒ»¼¶Ä¿Â¼");
+						System.out.println("è¯·è¾“å…¥è¦åˆ é™¤æ•™å¸ˆçš„å­¦å·æˆ–è€…è¾“å…¥ã€breakã€‘è¿”å›ä¸Šä¸€çº§ç›®å½•");
 						String idStr = sc.nextLine();
 						if(idStr.equals("break")){
-							break;//Ìø³öµ±Ç°Ñ­»·£¬·µ»ØÖ÷²Ëµ¥
+							break;//è·³å‡ºå½“å‰å¾ªç¯ï¼Œè¿”å›ä¸»èœå•
 						}
 						//1001#terry#12
 						long id = Long.parseLong(idStr);
 						Teacher oldTea = tms.queryById(id);
 						if(oldTea == null){
-							System.out.println("ÄúÒªÉ¾³ıµÄ½ÌÊ¦²»´æÔÚ£¡");
+							System.out.println("æ‚¨è¦åˆ é™¤çš„æ•™å¸ˆä¸å­˜åœ¨ï¼");
 							continue;
 						}
 						tms.deleteById(id);
-						System.out.println("É¾³ı³É¹¦£¡");
+						System.out.println("åˆ é™¤æˆåŠŸï¼");
 					}
 					break;
 				case "4":
 					while(true){
-						System.out.println("ÇëÊäÈëÑ§ºÅ»òÕßÊäÈë¡¾break¡¿·µ»ØÉÏÒ»¼¶Ä¿Â¼");
+						System.out.println("è¯·è¾“å…¥å­¦å·æˆ–è€…è¾“å…¥ã€breakã€‘è¿”å›ä¸Šä¸€çº§ç›®å½•");
 						String idStr = sc.nextLine();
 						if(idStr.equals("break")){
 							break;
@@ -186,42 +186,42 @@ public class Tms {
 						System.out.println(tea==null?"sorry,not found!":tea);
 					}
 					break;
-				case "5"://ĞŞ¸Ä
+				case "5"://ä¿®æ”¹
 					while(true){
-						System.out.println("ÇëÊäÈëÒªĞŞ¸Ä½ÌÊ¦µÄÑ§ºÅ»òÕßÊäÈë¡¾break¡¿·µ»ØÉÏÒ»¼¶Ä¿Â¼");
+						System.out.println("è¯·è¾“å…¥è¦ä¿®æ”¹æ•™å¸ˆçš„å­¦å·æˆ–è€…è¾“å…¥ã€breakã€‘è¿”å›ä¸Šä¸€çº§ç›®å½•");
 						String idStr = sc.nextLine();
 						if(idStr.equals("break")){
-							break;//Ìø³öµ±Ç°Ñ­»·£¬·µ»ØÖ÷²Ëµ¥
+							break;//è·³å‡ºå½“å‰å¾ªç¯ï¼Œè¿”å›ä¸»èœå•
 						}
 						//1001#terry#12
 						long id = Long.parseLong(idStr);
 					    Teacher oldTea = tms.queryById(id);
 						if(oldTea == null){
-							System.out.println("ÄúÒªĞŞ¸ÄµÄ½ÌÊ¦²»´æÔÚ£¡");
+							System.out.println("æ‚¨è¦ä¿®æ”¹çš„æ•™å¸ˆä¸å­˜åœ¨ï¼");
 							continue;
 						}
-						System.out.println("Ô­ÓĞĞÅÏ¢Îª£º"+oldTea);
-						System.out.println("ÇëÊäÈëĞÅÏ¢¡¾name#age¡¿");
-						//»ñÈ¡ÓÃ»§µÄĞÂĞÅÏ¢£¬²¢ÇÒ½«Æä·â×°Îª¶ÔÏó
+						System.out.println("åŸæœ‰ä¿¡æ¯ä¸ºï¼š"+oldTea);
+						System.out.println("è¯·è¾“å…¥ä¿¡æ¯ã€name#ageã€‘");
+						//è·å–ç”¨æˆ·çš„æ–°ä¿¡æ¯ï¼Œå¹¶ä¸”å°†å…¶å°è£…ä¸ºå¯¹è±¡
 						String newStr = sc.nextLine();
 						String[] newArr = newStr.split("#");
 						String name = newArr[0];
 						int age = Integer.parseInt(newArr[1]);
 
 						Teacher newTea = new Teacher(id,name,age);
-						//µ÷ÓÃĞŞ¸ÄÄ£¿éµÄ·½·¨£¬Íê³ÉĞŞ¸Ä¹¦ÄÜ
+						//è°ƒç”¨ä¿®æ”¹æ¨¡å—çš„æ–¹æ³•ï¼Œå®Œæˆä¿®æ”¹åŠŸèƒ½
 						tms.update(newTea);
-						System.out.println("ĞŞ¸Ä³É¹¦");
+						System.out.println("ä¿®æ”¹æˆåŠŸ");
 					}
 					break;
 				case "exit":
-					System.out.println("bye bye,»¶Ó­ÔÙ´ÎÊ¹ÓÃ£¡");
+					System.out.println("bye bye,æ¬¢è¿å†æ¬¡ä½¿ç”¨ï¼");
 					System.exit(0);
 				case "help":
 					tms.menu();
 					break;
 				default:
-					System.out.println("²»ºÏ·¨ÊäÈë£¡");
+					System.out.println("ä¸åˆæ³•è¾“å…¥ï¼");
 
 			}
 		}
